@@ -6,7 +6,11 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}", // Jika kamu menggunakan App directory (Next.js 13)
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Roboto", "Arial", "Helvetica", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
