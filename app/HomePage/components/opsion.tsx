@@ -1,39 +1,32 @@
 import React from "react";
-import "./opsion.css"; // <-- import css di sini
+import YouTubeCard from "./youtubecard";
+import "./opsion.css";
+import TikTokCard from "./tiktokcard";
 
 export default function Opsion() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4 font-sans">
-      <h1 className="text-3xl font-bold mb-12 text-center text-black pt-4">
+    <div
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 font-sans overflow-hidden"
+      style={{
+        background: "linear-gradient(to bottom right, #dbeafe, #fdf2f8)",
+      }}
+    >
+      {/* SVG Dekoratif */}
+      <img src="images/trends1.svg" className="absolute top-6 left-10 w-24 opacity-30" alt="" />
+      <img src="images/trends2.svg" className="absolute top-16 right-20 w-28 opacity-20" alt="" />
+      <img src="images/trends3.svg" className="absolute bottom-16 left-14 w-20 opacity-25" alt="" />
+      <img src="images/trends4.svg" className="absolute bottom-8 right-20 w-28 opacity-30" alt="" />
+      <img src="images/trends5.svg" className="absolute top-20 left-1/2 -translate-x-1/2 w-24 opacity-20" alt="" />
+      <img src="images/trends6.svg" className="absolute bottom-20 left-1/2 -translate-x-1/2 w-24 opacity-25" alt="" />
+      <img src="images/trends7.svg" className="absolute top-1/2 right-12 w-24 opacity-20" alt="" />
+
+      <h1 className="text-3xl font-bold mb-12 text-center text-black pt-4 relative z-10">
         Cari <span className="highlight">Trends</span> Social Media Disini
       </h1>
 
-      <div className="flex gap-10">
-        {/* Card Trends YouTube */}
-        <div
-          className="
-            bg-white border-2 border-red-600 w-56 py-8 rounded-3xl shadow-lg cursor-pointer 
-            flex flex-col items-center justify-center text-xl font-semibold text-red-600
-            transition duration-300 ease-in-out transform
-            hover:scale-105 hover:shadow-2xl hover:bg-blue-600 hover:text-white
-          "
-        >
-          <img src="images/yutub.png" alt="YouTube Logo" className="w-12 h-12 mb-4" />
-          Trends YouTube
-        </div>
-
-        {/* Card Trends TikTok */}
-        <div
-          className="
-            bg-white text-black w-56 py-8 rounded-3xl border-2 border-gray-300
-            flex flex-col items-center justify-center text-xl font-semibold shadow-md cursor-pointer 
-            transition duration-300 ease-in-out transform
-            hover:scale-105 hover:shadow-lg hover:bg-green-500 hover:text-white
-          "
-        >
-          <img src="images/tiktok.svg" alt="TikTok Logo" className="w-12 h-12 mb-4" />
-          Trends TikTok
-        </div>
+      <div className="flex gap-10 relative z-10">
+        <YouTubeCard />
+        <TikTokCard />
       </div>
     </div>
   );
