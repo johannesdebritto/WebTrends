@@ -38,3 +38,20 @@
     opacity: 0.4;
   }
 }
+
+.decorative {
+  position: absolute;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
