@@ -5,9 +5,14 @@ import Deskripsi from "./components/deskripsi";
 
 export default function HomePage() {
   return (
-    <>
-      <Opsion />
-      <Deskripsi />
-    </>
+    <main>
+      <section aria-label="Pencarian Trend Media Sosial">
+        <Opsion />
+      </section>
+
+      <section aria-label="Deskripsi WebTrends">
+        <Deskripsi />
+      </section>
+    </main>
   );
 }

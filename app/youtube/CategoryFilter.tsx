@@ -11,12 +11,14 @@ export default function CategoryFilter() {
   ];
 
   return (
-    <div className="flex gap-3 mt-6 flex-wrap justify-center">
-      {categories.map((cat) => (
-        <button key={cat.label} className={`px-4 py-2 rounded-full border ${cat.textColor} ${cat.borderColor} bg-white hover:bg-gray-50 transition`}>
-          {cat.label}
-        </button>
-      ))}
-    </div>
+    <section aria-label="Filter Kategori Konten" className="mt-6">
+      <div className="flex gap-3 flex-wrap justify-center">
+        {categories.map((cat) => (
+          <button key={cat.label} className={`px-4 py-2 rounded-full border ${cat.textColor} ${cat.borderColor} bg-white hover:bg-gray-50 transition`} type="button">
+            {cat.label}
+          </button>
+        ))}
+      </div>
+    </section>
   );
 }

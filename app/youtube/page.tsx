@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import CategoryFilter from "./CategoryFilter";
+import TrendsTable from "./TrendsTable";
 
 export default function YoutubePage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,6 +14,7 @@ export default function YoutubePage() {
 
       <SearchBar value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
       <CategoryFilter />
+      <TrendsTable />
     </main>
   );
 }
