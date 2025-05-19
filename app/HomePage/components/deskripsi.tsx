@@ -1,6 +1,5 @@
-// app/components/Deskripsi.tsx (atau sesuai struktur kamu)
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import "./opsion.css";
 
@@ -26,6 +25,13 @@ export default function Deskripsi() {
     5: { bottom: "0", right: "0", transform: "rotate(0deg)", width: "30px", opacity: 0.15, position: "absolute", pointerEvents: "none", zIndex: 0 },
     7: { top: "0", left: "50%", transform: "translateX(-50%)", width: "30px", opacity: 0.15, position: "absolute", pointerEvents: "none", zIndex: 0 },
   };
+
+  const [styles, setStyles] = useState<React.CSSProperties[]>([]);
+
+  useEffect(() => {
+    const newStyles = watermarkImages.map((_, idx) => fixedStyles[idx] ?? randomStyle());
+    setStyles(newStyles);
+  }, []);
 
   return (
     <section
@@ -61,8 +67,8 @@ export default function Deskripsi() {
           </p>
 
           {/* Ikon Watermark */}
-          {watermarkImages.map((src, idx) => (
-            <Image key={idx} src={src} alt="" width={30} height={30} style={fixedStyles[idx] ?? randomStyle()} className="absolute" aria-hidden="true" />
+          {styles.map((style, idx) => (
+            <Image key={idx} src={watermarkImages[idx]} alt="" width={30} height={30} style={style} className="absolute" aria-hidden="true" />
           ))}
         </article>
       </div>

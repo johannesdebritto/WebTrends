@@ -10,6 +10,15 @@ module.exports = {
       fontFamily: {
         sans: ["Roboto", "Arial", "Helvetica", "sans-serif"],
       },
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-1.5deg)" },
+          "50%": { transform: "rotate(1.5deg)" },
+        },
+      },
+      animation: {
+        wiggle: "wiggle 0.3s ease-in-out",
+      },
     },
   },
   plugins: [],

@@ -1,0 +1,16 @@
+.typewriter {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

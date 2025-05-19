@@ -28,7 +28,7 @@ export default function YouTubeCard() {
         }
       }}
     >
-      {/* Background merah gradasi slide-in */}
+      {/* Background gradasi */}
       <AnimatePresence>
         {isHovered && <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ duration: 0.4 }} className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 z-0" aria-hidden="true" />}
       </AnimatePresence>
@@ -41,29 +41,30 @@ export default function YouTubeCard() {
             <p>Trends YouTube</p>
           </header>
         )}
-
-        <AnimatePresence>
-          {isHovered && (
-            <>
-              <motion.p key="hoverText" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 50, opacity: 0 }} transition={{ duration: 0.4 }} className="absolute top-3 left-4 text-white text-xl font-bold">
-                Trends YouTube
-              </motion.p>
-
-              <motion.div
-                key="hoverImg"
-                initial={{ x: 50, y: 50, opacity: 0 }}
-                animate={{ x: 0, y: 0, opacity: 1 }}
-                exit={{ x: 50, y: 50, opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                className="absolute bottom-3 right-4 w-24 h-24 relative"
-                aria-hidden="true"
-              >
-                <Image src="/images/webz.svg" alt="" fill style={{ objectFit: "contain" }} />
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
       </div>
+
+      {/* Konten hover */}
+      <AnimatePresence>
+        {isHovered && (
+          <>
+            <motion.p key="hoverText" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 50, opacity: 0 }} transition={{ duration: 0.4 }} className="absolute top-3 left-4 text-white text-xl font-bold">
+              Trends YouTube
+            </motion.p>
+
+            <motion.div
+              key="hoverImg"
+              initial={{ x: 50, y: 50, opacity: 0 }}
+              animate={{ x: 0, y: 0, opacity: 1 }}
+              exit={{ x: 50, y: 50, opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="absolute bottom-3 right-4 w-24 h-24"
+              aria-hidden="true"
+            >
+              <Image src="/images/webz.svg" alt="" fill style={{ objectFit: "contain" }} />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </article>
   );
 }

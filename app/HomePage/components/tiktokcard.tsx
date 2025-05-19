@@ -27,31 +27,31 @@ export default function TikTokCard() {
             <p>Trends TikTok</p>
           </header>
         )}
-
-        <AnimatePresence>
-          {isHovered && (
-            <>
-              {/* Teks pojok kiri atas */}
-              <motion.p key="hoverText" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 50, opacity: 0 }} transition={{ duration: 0.4 }} className="absolute top-3 left-4 text-white text-xl font-bold">
-                Trends TikTok
-              </motion.p>
-
-              {/* Gambar pojok kanan bawah */}
-              <motion.div
-                key="hoverImg"
-                initial={{ x: 50, y: 50, opacity: 0 }}
-                animate={{ x: 0, y: 0, opacity: 1 }}
-                exit={{ x: 50, y: 50, opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                className="absolute bottom-3 right-4 w-24 h-24 relative"
-                aria-hidden="true"
-              >
-                <Image src="/images/webz2.svg" alt="" fill style={{ objectFit: "contain" }} />
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
       </div>
+
+      <AnimatePresence>
+        {isHovered && (
+          <>
+            {/* Teks pojok kiri atas */}
+            <motion.p key="hoverText" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 50, opacity: 0 }} transition={{ duration: 0.4 }} className="absolute top-3 left-4 text-white text-xl font-bold">
+              Trends TikTok
+            </motion.p>
+
+            {/* Gambar pojok kanan bawah - FIXED POSITION */}
+            <motion.div
+              key="hoverImg"
+              initial={{ x: 50, y: 50, opacity: 0 }}
+              animate={{ x: 0, y: 0, opacity: 1 }}
+              exit={{ x: 50, y: 50, opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="absolute bottom-3 right-4 w-24 h-24"
+              aria-hidden="true"
+            >
+              <Image src="/images/webz2.svg" alt="" fill style={{ objectFit: "contain" }} />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </article>
   );
 }
