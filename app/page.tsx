@@ -1,5 +1,6 @@
 // app/page.tsx
 
+import Footer from "./footer";
 import HomePage from "./HomePage";
 
 export const metadata = {
@@ -18,5 +19,10 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <HomePage />;
+  return (
+    <>
+      <HomePage />
+      <Footer />
+    </>
+  );
 }

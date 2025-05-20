@@ -1,6 +1,6 @@
 // components/TrendsTable.tsx
 import React from "react";
-import { Trend } from "./types";
+import { Trend } from "../data/types";
 
 interface Props {
   title: string;
