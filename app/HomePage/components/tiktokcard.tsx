@@ -3,12 +3,19 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation"; // ✅ Ganti impor router
 
 export default function TikTokCard() {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter(); // ✅ Gunakan hook useRouter()
+
+  const handleClick = () => {
+    router.push("/tiktok"); // ✅ Ini sekarang berfungsi
+  };
 
   return (
     <article
+      onClick={handleClick} // ✅ Tambahkan handler di sini
       className={`relative w-56 h-40 rounded-3xl border-2 ${isHovered ? "border-transparent shadow-[0_0_25px_#ff0050,0_0_40px_#00f2ea]" : "border-black"} cursor-pointer overflow-hidden transition-all duration-300`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -37,7 +44,7 @@ export default function TikTokCard() {
               Trends TikTok
             </motion.p>
 
-            {/* Gambar pojok kanan bawah - FIXED POSITION */}
+            {/* Gambar pojok kanan bawah */}
             <motion.div
               key="hoverImg"
               initial={{ x: 50, y: 50, opacity: 0 }}

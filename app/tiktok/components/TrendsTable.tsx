@@ -1,7 +1,14 @@
 // components/TrendsTable.tsx
 import React, { useState } from "react";
-import { Trend } from "../data/types";
+import { Trend } from "../datatiktok/types";
 import { ArrowUpRight } from "lucide-react";
+
+// Fungsi untuk format angka jadi K/M
+function formatNumber(num: number): string {
+  if (num >= 1_000_000) return (num / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
+  if (num >= 1_000) return (num / 1_000).toFixed(1).replace(/\.0$/, "") + "K";
+  return num.toString();
+}
 
 interface Props {
   title: string;
@@ -9,7 +16,6 @@ interface Props {
 }
 
 export default function TrendsTable({ title, data }: Props) {
-  // State buat toggle text filter
   const [nameSort, setNameSort] = useState<"A-Z" | "Z-A">("A-Z");
   const [uploadSort, setUploadSort] = useState<"Terbaru" | "Terlama">("Terbaru");
 
@@ -20,7 +26,7 @@ export default function TrendsTable({ title, data }: Props) {
     <section className="w-full max-w-5xl mx-auto mt-10 bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200">
       <header className="p-5 border-b border-gray-100 bg-white">
         <h2 className="text-lg font-semibold text-gray-800">
-          🔥 Trending YouTube Kategori <span className="text-gray-600">{title}</span>
+          🔥 Trending TikTok Kategori <span className="text-gray-600">{title}</span>
         </h2>
         <p className="text-xs text-gray-400 mt-1">Update harian</p>
 
@@ -40,8 +46,9 @@ export default function TrendsTable({ title, data }: Props) {
           <thead className="bg-gray-50 text-gray-600">
             <tr>
               <th className="px-5 py-3 text-left font-medium">Judul</th>
-              <th className="px-5 py-3 text-left font-medium">Channel</th>
+              <th className="px-5 py-3 text-left font-medium">Username</th>
               <th className="px-5 py-3 text-left font-medium">Views</th>
+              <th className="px-5 py-3 text-left font-medium">Likes</th>
               <th className="px-5 py-3 text-left font-medium">Upload</th>
             </tr>
           </thead>
@@ -53,9 +60,12 @@ export default function TrendsTable({ title, data }: Props) {
                   <ArrowUpRight size={14} className="text-gray-400" />
                   <span className="hover:underline cursor-pointer">{trend.title}</span>
                 </td>
-                <td className="px-5 py-3">{trend.channel}</td>
+                <td className="px-5 py-3">{trend.username}</td>
                 <td className="px-5 py-3">
-                  <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">{trend.views}</span>
+                  <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">{formatNumber(trend.views)}</span>
+                </td>
+                <td className="px-5 py-3">
+                  <span className="inline-block bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded-full">{formatNumber(trend.likes)}</span>
                 </td>
                 <td className="px-5 py-3 text-gray-500">{trend.uploaded}</td>
               </tr>
