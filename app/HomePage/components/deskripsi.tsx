@@ -35,17 +35,16 @@ export default function Deskripsi() {
 
   return (
     <section
-      className="w-full py-16 px-4 flex justify-center items-center"
+      className="w-full py-16 px-4 flex flex-col justify-center items-center"
       style={{
         background: "linear-gradient(to top right, #cde9fd, #fbcfe8)",
       }}
       aria-labelledby="trending-title"
     >
-      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
         {/* Kolom Gambar */}
         <figure className="flex justify-center">
           <div className="relative w-80 md:w-96 p-1.5 rounded-3xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] bg-white/60 backdrop-blur-lg border border-white/30 overflow-hidden transition-transform duration-300 hover:scale-105">
-            {/* Badge */}
             <div className="absolute top-2 left-2 flex gap-2 z-10" aria-hidden="true">
               <span className="bg-pink-100 text-pink-600 text-xs font-semibold px-2 py-0.5 rounded-full shadow">#YouTube</span>
               <span className="bg-blue-100 text-blue-600 text-xs font-semibold px-2 py-0.5 rounded-full shadow">#TikTok</span>
@@ -71,6 +70,11 @@ export default function Deskripsi() {
             <Image key={idx} src={watermarkImages[idx]} alt="" width={30} height={30} style={style} className="absolute" aria-hidden="true" />
           ))}
         </article>
+      </div>
+
+      {/* Footer Langsung di Dalam Section */}
+      <div className="text-center text-gray-600 pt-4 border-t border-white/40 w-full max-w-6xl">
+        <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
       </div>
     </section>
   );
